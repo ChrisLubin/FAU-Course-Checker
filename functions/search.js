@@ -3,7 +3,8 @@ const ROOT_URL = require('../models/rootUrl');
 
 async function search(course, cookie, semesterId) {
   try {
-    const res = await fetch(`${ROOT_URL}/searchResults/searchResults?txt_subject=${course.subject}&txt_courseNumber=${course.number}&txt_term=${semesterId}`, {
+    const params = `txt_subject=${course.subject}&txt_courseNumber=${course.number}&txt_term=${semesterId}`;
+    const res = await fetch(`${ROOT_URL}/searchResults/searchResults?${params}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

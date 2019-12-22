@@ -6,7 +6,8 @@ const ROOT_URL = require('../models/rootUrl');
 
 async function getLatestSemesterId() {
   try {
-    const res = await fetch(`${ROOT_URL}/classSearch/getTerms?&dataType=json&searchTerm=&offset=1&max=10`, {
+    const params = 'dataType=json&searchTerm=&offset=1&max=10';
+    const res = await fetch(`${ROOT_URL}/classSearch/getTerms?${params}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
