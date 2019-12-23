@@ -1,9 +1,10 @@
+/* eslint-disable max-len */
 const fetch = require('node-fetch');
 const ROOT_URL = require('../models/rootUrl');
 
-async function search(course, cookie, semesterId) {
+async function search(targetCourse, cookie, semesterId) {
   try {
-    const params = `txt_subject=${course.subject}&txt_courseNumber=${course.number}&txt_term=${semesterId}`;
+    const params = `txt_subject=${targetCourse.subject}&txt_courseNumber=${targetCourse.number}&txt_term=${semesterId}`;
     const res = await fetch(`${ROOT_URL}/searchResults/searchResults?${params}`, {
       method: 'GET',
       headers: {
@@ -14,7 +15,8 @@ async function search(course, cookie, semesterId) {
     });
     const query = await res.json();
 
-    return query.data;
+    // Only return course info that is being searched for
+    return query.data.filter(course => parseInt(course.courseReferenceNumber) === targetCourse.crn)[0];
   } catch (err) {
     return null;
   }

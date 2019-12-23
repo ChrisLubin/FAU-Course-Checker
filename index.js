@@ -30,12 +30,12 @@
   }
 
   const result = await search(courses[0], cookie, semesterId);
-  if (result === null) {
+  if (!result) {
     throw new Error('No course data was found.');
   }
 
-  const courseEnrollable = isEnrollable(result, courses[0]);
-  const courseWaitlistJoinable = isWaitlistJoinable(result, courses[0]);
+  const courseEnrollable = isEnrollable(result);
+  const courseWaitlistJoinable = isWaitlistJoinable(result);
   if (courseEnrollable) {
     // Send text/email alerting user that course enrollable
   } else if (courseWaitlistJoinable) {
