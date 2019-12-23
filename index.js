@@ -8,6 +8,7 @@
   const search = require('./functions/search');
   const isEnrollable = require('./functions/isEnrollable');
   const isWaitlistJoinable = require('./functions/isWaitlistJoinable');
+  const sendEmail = require('./functions/sendEmail');
 
   const courses = [];
 
@@ -36,9 +37,7 @@
 
   const courseEnrollable = isEnrollable(result);
   const courseWaitlistJoinable = isWaitlistJoinable(result);
-  if (courseEnrollable) {
-    // Send text/email alerting user that course enrollable
-  } else if (courseWaitlistJoinable) {
-    // Send text/email alerting user that course's waitlist is joinable
+  if (courseEnrollable || courseWaitlistJoinable) {
+    sendEmail(courseEnrollable, courseWaitlistJoinable, courses[0]);
   }
 }());

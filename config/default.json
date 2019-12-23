@@ -1,0 +1,6 @@
+{
+    "fromEmailService": "<FROM_EMAIL_SERVICE>",
+    "fromEmail": "<FROM_EMAIL>",
+    "password": "<FROM_EMAIL_PASSWORD>",
+    "toEmail": "<TO_EMAIL>"
+}
