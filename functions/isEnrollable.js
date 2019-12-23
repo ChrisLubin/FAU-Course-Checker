@@ -1,5 +1,5 @@
-function isEnrollable(res, targetCourse) {
-  return res.some(course => {
+function isEnrollable(result, targetCourse) {
+  return result.some(course => {
     if (parseInt(course.courseReferenceNumber) === targetCourse.crn) {
       if (course.waitCapacity === 0 && course.seatsAvailable > 0) {
         // Course does not have a waitlist and there are seat(s) available

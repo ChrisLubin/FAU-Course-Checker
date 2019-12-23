@@ -29,13 +29,13 @@
     throw new Error('The session was not successfully started.');
   }
 
-  const res = await search(courses[0], cookie, semesterId);
-  if (res === null) {
+  const result = await search(courses[0], cookie, semesterId);
+  if (result === null) {
     throw new Error('No course data was found.');
   }
 
-  const courseEnrollable = isEnrollable(res, courses[0]);
-  const courseWaitlistJoinable = isWaitlistJoinable(res, courses[0]);
+  const courseEnrollable = isEnrollable(result, courses[0]);
+  const courseWaitlistJoinable = isWaitlistJoinable(result, courses[0]);
   if (courseEnrollable) {
     // Send text/email alerting user that course enrollable
   } else if (courseWaitlistJoinable) {
