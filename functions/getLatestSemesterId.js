@@ -1,6 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable array-callback-return */
-/* eslint-disable arrow-parens */
 const fetch = require('node-fetch');
 const ROOT_URL = require('../models/rootUrl');
 
