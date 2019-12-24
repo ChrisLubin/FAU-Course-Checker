@@ -51,7 +51,7 @@
       const courseEnrollable = isEnrollable(result);
       const courseWaitlistJoinable = isWaitlistJoinable(result);
       if (courseEnrollable || courseWaitlistJoinable) {
-        sendEmail(courseEnrollable, courseWaitlistJoinable, course);
+        await sendEmail(courseEnrollable, courseWaitlistJoinable, course);
         // Stop sending notifications for specific course
         courses = courses.filter(aCourse => aCourse !== course);
       }
@@ -61,5 +61,5 @@
       clearInterval(interval);
       process.exit(1);
     }
-  }, 120000);
+  }, 135000);
 }());

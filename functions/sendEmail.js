@@ -31,10 +31,14 @@ function sendEmail(courseEnrollable, courseWaitlistJoinable, course) {
     text: emailText
   };
 
-  transporter.sendMail(mailOptions, error => {
-    if (error) {
-      throw new Error(error);
-    }
+  return new Promise((resolve, reject) => {
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(info.response);
+      }
+    });
   });
 }
 
