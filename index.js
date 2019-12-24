@@ -3,7 +3,6 @@
 /* eslint-disable global-require */
 // eslint-disable-next-line func-names
 (async function () {
-  const Course = require('./models/course');
   const getCookie = require('./functions/getCookie'); // Required to get data from API
   const getLatestSemesterId = require('./functions/getLatestSemesterId');
   const startNewSession = require('./functions/startNewSession'); // Also required
@@ -13,13 +12,7 @@
   const isWaitlistJoinable = require('./functions/isWaitlistJoinable');
   const sendEmail = require('./functions/sendEmail');
 
-  let courses = [];
-
-  // Add individual courses to check for
-  courses.push(new Course('ARH', 2000, 10014));
-  courses.push(new Course('ARH', 2000, 13866));
-  courses.push(new Course('ENC', 1101, 10069));
-  courses.push(new Course('STA', 4821, 12336));
+  let courses = require('./models/courses');
 
   const cookie = await getCookie();
   if (!cookie) {
