@@ -14,26 +14,34 @@
 
   let courses = require('./models/courses');
 
-  const cookie = await getCookie();
-  if (!cookie) {
-    throw new Error('No cookie data was generated.');
-  }
-
   const semesterId = await getLatestSemesterId();
   if (!semesterId) {
     throw new Error('The latest semester ID could not be found.');
   }
 
-  const sessionStarted = await startNewSession(cookie, semesterId);
+  let cookie = await getCookie();
+  if (!cookie) {
+    throw new Error('No cookie data was generated.');
+  }
+
+  let sessionStarted = await startNewSession(cookie, semesterId);
   if (!sessionStarted) {
     throw new Error('The session was not successfully started.');
   }
 
   const interval = setInterval(async () => {
     for (const course of courses) {
-      const result = await search(course, cookie, semesterId);
+      let result = await search(course, cookie, semesterId);
       if (!result) {
-        throw new Error('No course data was found.');
+        // Generate another cookie because cookie may have expired
+        cookie = await getCookie();
+        sessionStarted = await startNewSession(cookie, semesterId);
+        result = await search(course, cookie, semesterId);
+
+        if (!result) {
+          // Cookie didn't expire, course data was really not found
+          throw new Error('No course data was found.');
+        }
       }
 
       const searchReset = await resetSearch(cookie);
