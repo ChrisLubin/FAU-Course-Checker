@@ -4,7 +4,8 @@
   "description": "This application will constantly check for an opening in a course you're waiting to join then text or email you about it.",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node index",
+    "eslint": "npx eslint . --ext .js"
   },
   "repository": {
     "type": "git",

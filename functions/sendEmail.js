@@ -14,6 +14,7 @@ function sendEmail(courseEnrollable, courseWaitlistJoinable, course) {
   } else if (courseWaitlistJoinable) {
     emailText = `${course.subject} ${course.number} w/ CRN:${course.crn} now has a spot open on the waitlist! Hurry up and fill it!`;
   }
+  emailText += '\n\nP.S. If you try to join the class and the spot is already taken, you have to restart the app.'; // Reminder
 
   const transporter = nodemailer.createTransport({
     service,
