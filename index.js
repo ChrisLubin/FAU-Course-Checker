@@ -60,7 +60,7 @@
 
     if (courses.length === 0) {
       clearInterval(interval);
-      process.exit(1);
+      process.exit(0);
     }
   }, 135000);
 }());
