@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-<font size="4">This application will constantly check for an opening in a course you're waiting to join then text or email you about it!</font>    
+<h4 align="center">This application will constantly check for an opening in a course you're waiting to join then text or email you about it!</h4>    
 </p>
 
 ## Setting Up
@@ -14,7 +14,6 @@ These instructions will get you a copy of the project up and running on your loc
 ![config](https://img.shields.io/badge/config-3.2.4-brightgreen)
 ![node-fetch](https://img.shields.io/badge/node--fetch-2.6.0-yellow)
 ![nodemailer](https://img.shields.io/badge/nodemailer-6.4.2-green)
-
 ### Prerequisites
 
 [Node](https://nodejs.org) has to be installed first before continuing.
