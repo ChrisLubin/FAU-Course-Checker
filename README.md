@@ -14,6 +14,7 @@ These instructions will get you a copy of the project up and running on your loc
 ![config](https://img.shields.io/badge/config-3.2.4-brightgreen)
 ![node-fetch](https://img.shields.io/badge/node--fetch-2.6.0-yellow)
 ![nodemailer](https://img.shields.io/badge/nodemailer-6.4.2-green)
+
 ### Prerequisites
 
 [Node](https://nodejs.org) has to be installed first before continuing.
@@ -35,6 +36,15 @@ The following variables need be changed in the [config](/config/default.json) fi
 "fromEmail": "<FROM_EMAIL>",
 "password": "<FROM_EMAIL_PASSWORD>",
 "toEmail": "<TO_EMAIL>"
+```
+
+The following lines need be changed in the [courses](/models/courses.js) file for the application to search for the correct classes. The course subject, number, and CRN need to be provided.
+
+```js
+courses.push(new Course('ARH', 2000, 10014));
+courses.push(new Course('ARH', 2000, 13866));
+courses.push(new Course('ENC', 1101, 10069));
+courses.push(new Course('STA', 4821, 12336));
 ```
 
 For more information on how to set the application to text you when there's an opening, see [here](https://20somethingfinance.com/how-to-send-text-messages-sms-via-email-for-free/).
