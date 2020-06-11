@@ -1,6 +1,8 @@
 <h1 align="center"> FAU Course-Checker </h1> <br>
 <p align="center">
-  <img alt="Front Page" src="images/screenshot1.PNG" height="400">
+  <img alt="Front Page" src="images/screenshot1.PNG" height="300">
+  <br>
+  <img alt="Front Page" src="images/screenshot2.PNG" height="200">
 </p>
 
 <p align="center">
